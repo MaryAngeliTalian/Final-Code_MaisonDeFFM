@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison De FFM - Admin Dashboard</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body style="background-image: url('assets/background/all.png');">
+
+<!-- Admin Dashboard Header -->
+<div class="admin-header" style="padding-top: 100px;">
+    <h1>WELCOME ADMIN</h1>
+    <p>Managing Beauty & Wellness Operations • Maison De FFM</p>
+</div>
+
+<!-- Main Dashboard Grid -->
+<div class="admin-grid">
+
+    <!-- Scheduled Appointments (Large, Full-Width) with Integrated Receipts -->
+    <div class="admin-card full-width" style="padding: 40px;">
+        <h3 style="font-size: 32px; margin-bottom: 30px; text-align: center;">Scheduled Appointments</h3>
+
+        <div class="table-container">
+            <table class="appointments-table">
+                <thead>
+                    <tr>
+                        <th>Date & Time</th>
+                        <th>Client</th>
+                        <th>Service</th>
+                        <th>Beautician</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Receipt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dec 16, 2025 • 2:00 PM</td>
+                        <td>Maria Santos</td>
+                        <td>Threading + Waxing</td>
+                        <td>Reece</td>
+                        <td>Home Service</td>
+                        <td>
+                            <select class="status-select" onchange="updateStatus(this, 'Dec 16, 2025 • 2:00 PM')">
+                                <option value="Pending" selected>Pending</option>
+                                <option value="Confirmed">Confirmed</option>
+                                <option value="Ongoing">Ongoing</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </td>
+                        <td>#FFM-20251216-001<br>₱1,800 via GCash</td>
+                    </tr>
+                    <tr>
+                        <td>Dec 16, 2025 • 4:30 PM</td>
+                        <td>Claire Lim</td>
+                        <td>Full Facial</td>
+                        <td>Jasmine</td>
+                        <td>On-Site</td>
+                        <td>
+                            <select class="status-select" onchange="updateStatus(this, 'Dec 16, 2025 • 4:30 PM')">
+                                <option value="Ongoing" selected>Ongoing</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Confirmed">Confirmed</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </td>
+                        <td>#FFM-20251216-002<br>₱2,500 via Card</td>
+                    </tr>
+                    <tr>
+                        <td>Dec 17, 2025 • 10:00 AM</td>
+                        <td>Anna Reyes</td>
+                        <td>Manicure + Pedicure</td>
+                        <td>Reece</td>
+                        <td>Home Service</td>
+                        <td>
+                            <select class="status-select" onchange="updateStatus(this, 'Dec 17, 2025 • 10:00 AM')">
+                                <option value="Confirmed" selected>Confirmed</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Ongoing">Ongoing</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </td>
+                        <td>#FFM-20251217-001<br>₱3,200 via E-wallet</td>
+                    </tr>
+                    <tr>
+                        <td>Dec 17, 2025 • 1:00 PM</td>
+                        <td>Sophia Go</td>
+                        <td>Swedish Massage</td>
+                        <td>Mika</td>
+                        <td>Home Service</td>
+                        <td>
+                            <select class="status-select" onchange="updateStatus(this, 'Dec 17, 2025 • 1:00 PM')">
+                                <option value="Pending" selected>Pending</option>
+                                <option value="Confirmed">Confirmed</option>
+                                <option value="Ongoing">Ongoing</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </td>
+                        <td>N/A (Unpaid)</td>
+                    </tr>
+                    <tr>
+                        <td>Dec 18, 2025 • 3:00 PM</td>
+                        <td>Liza Tan</td>
+                        <td>Hair Treatment</td>
+                        <td>Lara</td>
+                        <td>On-Site</td>
+                        <td>
+                            <select class="status-select" onchange="updateStatus(this, 'Dec 18, 2025 • 3:00 PM')">
+                                <option value="Pending" selected>Pending</option>
+                                <option value="Confirmed">Confirmed</option>
+                                <option value="Ongoing">Ongoing</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </td>
+                        <td>#FFM-20251218-001<br>₱4,000 via Cash</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Separate Beautician Status Card -->
+    <div class="admin-card full-width">
+        <h3 style="font-size: 30px; margin-bottom: 25px; text-align: center;">Beautician Status</h3>
+        <div class="beautician-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+            <div class="beautician-item">
+                <strong style="font-size: 24px;">Anna</strong>
+                <span class="status available">Available</span>
+            </div>
+            <div class="beautician-item">
+                <strong style="font-size: 24px;">Marie</strong>
+                <span class="status available">Available</span>
+            </div>
+            <div class="beautician-item">
+                <strong style="font-size: 24px;">Jessa</strong>
+                <span class="status available">Available</span>
+            </div>
+            <div class="beautician-item">
+                <strong style="font-size: 24px;">Clara</strong>
+                <span class="status available">Available</span>
+            </div>
+            <div class="beautician-item">
+                <strong style="font-size: 24px;">Sophia</strong>
+                <span class="status available">Available</span>
+            </div>
+            <div class="beautician-item">
+                <strong style="font-size: 24px;">Rica</strong>
+                <span class="status available">Available</span>
+            </div>
+            <div class="beautician-item">
+                <strong style="font-size: 24px;">Ella</strong>
+                <span class="status available">Available</span>
+            </div>
+            <div class="beautician-item">
+                <strong style="font-size: 24px;">Leo</strong>
+                <span class="status available">Available</span>
+            </div>
+            <div class="beautician-item">
+                <strong style="font-size: 24px;">Marco</strong>
+                <span class="status available">Available</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Beautician Tracker -->
+    <div class="admin-card">
+        <h3>Live Beautician Tracker</h3>
+        <div class="tracker-map">
+            <p style="text-align: center; padding: 40px; color: #ccc;">
+                [Live Map View Here]<br>
+                <small>Reece → Heading to Maria Santos (ETA: 15 mins)</small>
+            </p>
+        </div>
+        <div class="tracker-status">
+            <p><strong>Reece:</strong> En route to client (GPS Active)</p>
+            <p><strong>Jasmine:</strong> Stationed at Salon Branch</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Logout Button -->
+<div style="text-align: center; margin: 40px 0;">
+    <button class="logout-btn" onclick="logout()">LOG OUT</button>
+</div>
+
+<!-- Admin Access & Logout Script -->
+<script>
+    if (localStorage.getItem("userRole") !== "admin") {
+        window.location.href = "login.html";
+    }
+
+    function logout() {
+        localStorage.clear();
+        window.location.href = "login.html";
+    }
+
+    // Demo status update (saves to localStorage)
+    function updateStatus(select, appointmentKey) {
+        const status = select.value;
+        const appointments = JSON.parse(localStorage.getItem('adminAppointments') || '{}');
+        appointments[appointmentKey] = status;
+        localStorage.setItem('adminAppointments', JSON.stringify(appointments));
+        alert(`Status updated to ${status} for ${appointmentKey}`);
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,213 @@
+/* =========================== ADMIN DASHBOARD STYLES =========================== */
+
+.admin-header {
+    padding-top: 180px;
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.admin-header h1 {
+    font-size: 72px;
+    letter-spacing: 10px;
+    color: #ffdc5a;
+    text-shadow: 0 0 20px rgba(255, 220, 90, 0.6);
+}
+
+.admin-header p {
+    font-size: 24px;
+    opacity: 0.9;
+    letter-spacing: 3px;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    padding: 0 40px;
+    max-width: 1400px;
+    margin: 0 auto 100px;
+}
+
+.admin-card {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.admin-card h3 {
+    color: #ffdc5a;
+    font-size: 26px;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Tables */
+.table-container {
+    overflow-x: auto;
+}
+
+.appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.appointments-table th,
+.appointments-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.appointments-table th {
+    color: #ffd6e8;
+    font-weight: bold;
+}
+
+/* Status Badges */
+.status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.status.confirmed { background: rgba(100, 200, 100, 0.4); color: #aaffaa; }
+.status.pending { background: rgba(255, 200, 50, 0.4); color: #ffdc5a; }
+.status.ongoing { background: rgba(100, 150, 255, 0.4); color: #aaccff; }
+.status.available { background: rgba(100, 200, 100, 0.4); color: #aaffaa; }
+.status.off { background: rgba(200, 100, 100, 0.4); color: #ffaaaa; }
+
+/* Lists */
+.beautician-list, .feedback-list, .receipt-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.beautician-item, .feedback-item, .receipt-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feedback-item p {
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+/* Tracker */
+.tracker-map {
+    background: rgba(0, 0, 0, 0.3);
+    height: 200px;
+    border-radius: 16px;
+    margin-bottom: 15px;
+    border: 1px dashed rgba(255, 220, 90, 0.4);
+}
+
+.tracker-status p {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+    .admin-header h1 { font-size: 52px; }
+}
+/* =========================== ADMIN STATUS SELECTOR & LOGOUT =========================== */
+
+/* Status Dropdown (Editable) */
+.status-select {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: 1px solid rgba(255, 220, 90, 0.4);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 140px;
+    transition: all 0.3s ease;
+}
+
+.status-select:focus {
+    outline: none;
+    border-color: #ffdc5a;
+    box-shadow: 0 0 10px rgba(255, 220, 90, 0.5);
+}
+
+/* Logout Button (Consistent with other pages) */
+.logout-btn {
+    padding: 14px 40px;
+    background: transparent;
+    border: 2px solid #ffdc5a;
+    color: #ffdc5a;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    margin: 0 auto;
+    display: block;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 220, 90, 0.3);
+    color: white;
+    border-color: white;
+    box-shadow: 0 10px 30px rgba(255, 220, 90, 0.6);
+    transform: translateY(-4px);
+}
+
+/* Beautician Item Enhancements */
+.beautician-item {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 220, 90, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.beautician-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 220, 90, 0.3);
+}
+
+.beautician-item strong {
+    display: block;
+    font-size: 24px;
+    color: #ffdc5a;
+    margin-bottom: 10px;
+}
+
+.status.available {
+    background: rgba(100, 200, 100, 0.4);
+    color: #aaffaa;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .status-select {
+        width: 120px;
+        font-size: 13px;
+    }
+    .logout-btn {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+}
